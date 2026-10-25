@@ -1,0 +1,89 @@
+{
+  "name": "auto-checkin",
+  "productName": "AutoCheckin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "签到工具箱：网页前端 + 浏览器内核外壳，插件式功能面板，一键运行本机 .bat，内置森空岛与米游社每日签到",
+  "main": "src/main/main.js",
+  "author": {
+    "name": "zlosraa",
+    "email": "zlosraa@example.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "smoke": "electron . --smoke-test",
+    "test": "node tools/test-core.js",
+    "icon": "python tools/make-icon.py",
+    "dist": "electron-builder --win portable",
+    "dist:installer": "electron-builder --win nsis",
+    "dist:all": "electron-builder --win",
+    "dist:dir": "electron-builder --win --dir",
+    "dist:dir:nosign": "electron-builder --win --dir -c.win.signAndEditExecutable=false",
+    "dist:portable:nosign": "electron-builder --win portable -c.win.signAndEditExecutable=false --prepackaged dist/win-unpacked",
+    "dist:safe": "electron-builder --win --dir -c.win.signAndEditExecutable=false && electron-builder --win portable -c.win.signAndEditExecutable=false --prepackaged dist/win-unpacked"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.zlosraa.autocheckin",
+    "productName": "AutoCheckin",
+    "copyright": "Copyright © 2026",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "config",
+        "to": "config"
+      },
+      {
+        "from": "scripts",
+        "to": "scripts"
+      },
+      {
+        "from": "build/icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "AutoCheckin-${version}-portable.exe",
+      "requestExecutionLevel": "user"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "签到工具箱",
+      "artifactName": "AutoCheckin-${version}-setup.exe"
+    }
+  }
+}

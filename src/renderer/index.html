@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'"
+    />
+    <title>签到工具箱</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- 侧边栏：模块导航由 app.js 按模块清单动态生成 -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4.5" width="18" height="16" rx="4" />
+              <path d="M8 3v3M16 3v3M3 9.5h18" />
+              <path d="m9 15 2 2 4-4.5" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <strong>签到工具箱</strong>
+            <span id="brand-sub">加载中…</span>
+          </div>
+        </div>
+
+        <nav id="nav" class="nav" aria-label="模块导航"></nav>
+
+        <div class="sidebar-footer">
+          <button id="btn-reload" class="ghost-btn" type="button" title="重新读取 tools.json / modules.json">
+            重新加载配置
+          </button>
+          <button id="btn-config" class="ghost-btn" type="button">打开配置目录</button>
+          <p class="config-path" id="config-path"></p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="topbar-title">
+            <h1 id="view-title">签到工具箱</h1>
+            <p id="view-desc"></p>
+          </div>
+          <div class="topbar-actions" id="topbar-actions"></div>
+        </header>
+
+        <div id="banners" class="banners"></div>
+        <section id="views" class="views"></section>
+      </main>
+    </div>
+
+    <div id="toasts" class="toasts" aria-live="polite"></div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

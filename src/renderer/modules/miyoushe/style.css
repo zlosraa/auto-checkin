@@ -1,0 +1,19 @@
+/* 米游社模块私有样式（紫色调，与森空岛区分）
+   选择器带 [data-view-id] 做作用域，避免影响其它模块的按钮。 */
+[data-view-id='miyoushe'] {
+  --ck-accent: #5a5bef;
+  --ck-accent-2: #8a7bff;
+}
+
+[data-view-id='miyoushe'] .btn.primary {
+  background: linear-gradient(135deg, #5a5bef, #8a7bff);
+  box-shadow: 0 2px 8px rgba(90, 91, 239, 0.24);
+}
+
+[data-view-id='miyoushe'] .btn.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4b4ce0, #7a6bff);
+}
+
+[data-view-id='miyoushe'] .ck-avatar {
+  box-shadow: 0 3px 10px rgba(90, 91, 239, 0.24);
+}

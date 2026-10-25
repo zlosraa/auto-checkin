@@ -1,0 +1,10 @@
+{
+  "id": "bat-runner",
+  "title": "脚本工具",
+  "icon": "bolt",
+  "description": "一键运行本机 .bat 脚本，实时查看状态、退出码与输出",
+  "entry": "module.js",
+  "styles": ["style.css"],
+  "order": 10,
+  "defaultEnabled": true
+}

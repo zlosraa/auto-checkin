@@ -1,0 +1,10 @@
+{
+  "id": "skland",
+  "title": "森空岛签到",
+  "icon": "calendar",
+  "description": "手机号 + 验证码登录森空岛，一键完成明日方舟、终末地每日签到",
+  "entry": "module.js",
+  "styles": ["style.css"],
+  "order": 20,
+  "defaultEnabled": true
+}

@@ -1,0 +1,10 @@
+{
+  "id": "settings",
+  "title": "设置与诊断",
+  "icon": "gear",
+  "description": "配置 Server酱 微信推送、查看凭据加密状态与脚本体检结果",
+  "entry": "module.js",
+  "styles": ["style.css"],
+  "order": 40,
+  "defaultEnabled": true
+}

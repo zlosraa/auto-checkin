@@ -1,0 +1,10 @@
+# 统一换行，避免不同系统协作时整文件 diff
+* text=auto eol=lf
+
+# Windows 批处理按字节原样保存（示例脚本是 GBK 编码 + CRLF，不能被换行转换动到）
+*.bat -text
+*.cmd -text
+
+# 二进制资源
+*.ico binary
+*.png binary

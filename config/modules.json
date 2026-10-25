@@ -1,0 +1,12 @@
+{
+  "$schema": "./modules.schema.json",
+  "_note": "侧边栏显示哪些模块、顺序与标题。新增模块后想显示出来，在 order 里加一行；enabled=false 可临时隐藏；settings 会合并进模块的 ctx.module.settings。",
+  "order": ["bat-runner", "skland", "miyoushe", "settings", "welcome"],
+  "modules": {
+    "bat-runner": { "enabled": true },
+    "skland": { "enabled": true, "title": "森空岛签到" },
+    "miyoushe": { "enabled": true, "title": "米游社签到" },
+    "settings": { "enabled": true, "title": "设置与诊断" },
+    "welcome": { "enabled": true, "title": "使用说明" }
+  }
+}

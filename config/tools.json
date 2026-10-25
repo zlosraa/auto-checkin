@@ -1,0 +1,82 @@
+{
+  "$schema": "./tools.schema.json",
+  "version": 1,
+  "_note": "按钮 ↔ 脚本 的对应关系，全部集中在这里。名称 / 说明 / .bat 路径 / 工作目录 都在这一条配置里；改完保存后点界面左下角「重新加载配置」立即生效，无需重启。相对路径会依次按「配置文件所在目录 → 程序目录」解析，支持 %USERPROFILE% 这类环境变量。（skland / miyoushe 两条是 disabled 的示例，改成自己的路径后再启用）",
+  "tools": [
+    {
+      "id": "demo-hello",
+      "name": "示例脚本 · 环境自检",
+      "description": "输出当前工作目录、参数与一行中文，用来验证「点击即运行 + 日志回显」是否正常。",
+      "script": "scripts\\demo-hello.bat",
+      "cwd": "scripts",
+      "args": [],
+      "timeoutSeconds": 60,
+      "tags": [
+        "示例"
+      ],
+      "encoding": "auto"
+    },
+    {
+      "id": "skland-cli",
+      "name": "森空岛 · 命令行签到（示例）",
+      "description": "示例：把本机某个签到脚本接成按钮。把 script / cwd 换成自己的路径，再把 enabled 改成 true。",
+      "script": "%USERPROFILE%\\checkin\\skland\\run.bat",
+      "cwd": "%USERPROFILE%\\checkin\\skland",
+      "args": [],
+      "timeoutSeconds": 600,
+      "tags": [
+        "森空岛",
+        "签到",
+        "示例"
+      ],
+      "enabled": false
+    },
+    {
+      "id": "miyoushe-cli",
+      "name": "米游社 · 命令行签到（示例）",
+      "description": "示例：把本机某个签到脚本接成按钮。把 script / cwd 换成自己的路径，再把 enabled 改成 true。",
+      "script": "%USERPROFILE%\\checkin\\miyoushe\\run.bat",
+      "cwd": "%USERPROFILE%\\checkin\\miyoushe",
+      "args": [],
+      "timeoutSeconds": 600,
+      "tags": [
+        "米游社",
+        "签到",
+        "示例"
+      ],
+      "enabled": false
+    },
+    {
+      "id": "demo-fail",
+      "name": "示例脚本 · 非零退出码",
+      "description": "故意返回退出码 3，用来验证失败状态、退出码与错误信息展示。",
+      "script": "scripts\\demo-hello.bat",
+      "cwd": "scripts",
+      "args": [
+        "--fail"
+      ],
+      "timeoutSeconds": 60,
+      "tags": [
+        "示例",
+        "异常"
+      ],
+      "enabled": false
+    },
+    {
+      "id": "demo-timeout",
+      "name": "示例脚本 · 超时",
+      "description": "睡 30 秒但超时设为 5 秒，用来验证超时强杀与中文提示。",
+      "script": "scripts\\demo-hello.bat",
+      "cwd": "scripts",
+      "args": [
+        "--sleep"
+      ],
+      "timeoutSeconds": 5,
+      "tags": [
+        "示例",
+        "异常"
+      ],
+      "enabled": false
+    }
+  ]
+}

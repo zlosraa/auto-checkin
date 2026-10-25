@@ -1,0 +1,10 @@
+{
+  "id": "miyoushe",
+  "title": "米游社签到",
+  "icon": "gamepad",
+  "description": "手机号 + 验证码登录米游社，一键完成星穹铁道、绝区零每日签到",
+  "entry": "module.js",
+  "styles": ["style.css"],
+  "order": 30,
+  "defaultEnabled": true
+}

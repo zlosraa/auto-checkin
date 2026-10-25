@@ -1,0 +1,16 @@
+/* 森空岛模块私有样式
+   注意选择器要带 [data-view-id]：模块样式是全局注入的，
+   不带作用域会污染其它模块的主按钮颜色。 */
+[data-view-id='skland'] {
+  --ck-accent: #0f9b8e;
+  --ck-accent-2: #35c9b4;
+}
+
+[data-view-id='skland'] .btn.primary {
+  background: linear-gradient(135deg, #0f9b8e, #2ec0ae);
+  box-shadow: 0 2px 8px rgba(15, 155, 142, 0.24);
+}
+
+[data-view-id='skland'] .btn.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0c8a7e, #27b3a2);
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/auto-checkin/modules.schema.json",
+  "title": "签到工具箱 · 模块开关配置",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "_note": { "type": "string" },
+    "order": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "侧边栏顺序；不在列表里的模块按 module.json 的 order 排在后面"
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "enabled": { "type": "boolean" },
+          "title": { "type": "string", "description": "覆盖导航显示名" },
+          "settings": { "type": "object", "description": "模块级参数，合并进 ctx.module.settings" }
+        }
+      }
+    }
+  }
+}

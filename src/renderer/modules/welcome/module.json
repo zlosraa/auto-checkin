@@ -1,0 +1,10 @@
+{
+  "id": "welcome",
+  "title": "使用说明",
+  "icon": "book",
+  "description": "三分钟了解这个工具箱能做什么、怎么扩展",
+  "entry": "module.js",
+  "styles": ["style.css"],
+  "order": 50,
+  "defaultEnabled": true
+}

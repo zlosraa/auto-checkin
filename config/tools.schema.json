@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.local/auto-checkin/tools.schema.json",
+  "title": "签到工具箱 · 脚本工具配置",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "number" },
+    "_note": { "type": "string" },
+    "tools": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/tool" }
+    }
+  },
+  "required": ["tools"],
+  "definitions": {
+    "tool": {
+      "type": "object",
+      "required": ["id", "name", "script"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+$",
+          "description": "唯一标识，重复的会被忽略"
+        },
+        "name": { "type": "string", "description": "卡片标题" },
+        "description": { "type": "string", "description": "卡片说明" },
+        "script": {
+          "type": "string",
+          "description": ".bat / .cmd 路径。绝对路径最稳；相对路径依次按「配置文件所在目录 → 程序目录」解析；支持 %USERPROFILE% 这类环境变量"
+        },
+        "cwd": {
+          "type": "string",
+          "description": "工作目录。留空 = 脚本所在目录。不存在会在界面明确报错"
+        },
+        "args": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "参数数组，例如 [\"--check\"]；不能含英文双引号"
+        },
+        "timeoutSeconds": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 86400,
+          "description": "超时秒数，默认 300；超时会强制结束整棵进程树"
+        },
+        "encoding": {
+          "enum": ["auto", "utf-8", "gbk"],
+          "description": "输出编码，auto 会先试 UTF-8，非法字节自动降级 GBK"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "标签，仅用于展示与搜索"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "false 时该工具不显示（配置保留）"
+        }
+      }
+    }
+  }
+}
